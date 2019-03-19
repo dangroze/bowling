@@ -10,7 +10,7 @@ describe('Game', function() {
   it('has no frames by default', function() {
     expect(game._frames).toEqual([]);
   });
-  describe('addFrame', function() {
+  describe('#addFrame', function() {
     it('adds a frame', function() {
       game.addFrame(frame);
       expect(game._frames).toEqual([frame]);
@@ -22,8 +22,8 @@ describe('Game', function() {
       expect(function(){game.addFrame(frame)}).toThrowError('Cannot add more frames!');
     })
   })
-  describe('total score', function() {
-    it('returns score', function() {
+  describe('#gameScore', function() {
+    it('returns total score', function() {
       game.addFrame(frame);
       game.addFrame(frame2);
       frame.frameScore.and.returnValue(9);
@@ -31,7 +31,7 @@ describe('Game', function() {
       expect(game.gameScore()).toEqual(13);
     })
   })
-  describe('frameBonus', function(){
+  describe('#frameBonus', function(){
     it('returns 0 bonus when not strike or spare', function(){
       game.addFrame(frame);
       game.addFrame(frame2);

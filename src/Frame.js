@@ -1,12 +1,11 @@
-function Frame () {
-  this._rolls = [];
+function Frame(firstRoll){
+  this._rolls = [firstRoll];
 }
 
 Frame.prototype = {
-  addRoll: function (roll) {
-    if (this._rolls.length === 0 && roll === 10) {
-      this._rolls.push(10)
-      this._rolls.push(0)
+  addSecondRoll: function (roll) {
+    if (this._rolls[0] === 10) {
+      throw new Error('Frame was already strike!')
     } else if (this._rolls.length < 2) {
       this._rolls.push(roll)
     } else {
